@@ -1,3 +1,7 @@
+
+[![Dependency Status](https://dependencyci.com/github/ibm-cloud-solutions/hubot-ibmcloud-service-management/badge)](https://dependencyci.com/github/ibm-cloud-solutions/hubot-ibmcloud-service-management)
+[![npm](https://img.shields.io/npm/v/hubot-ibmcloud-service-management.svg?maxAge=2592000)](https://www.npmjs.com/package/hubot-ibmcloud-service-management)
+
 # hubot-ibmcloud-service-management
 
 Script package that exposes various IBM Cloud services functionality through Hubot.
