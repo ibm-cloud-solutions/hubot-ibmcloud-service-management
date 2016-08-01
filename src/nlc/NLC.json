@@ -1,0 +1,92 @@
+{   "name": "IBMcloudServiceManagment",
+    "version": "1.0",
+    "classes": [
+        {
+            "class": "bluemix.service.bind",
+            "emittarget": "bluemix.service.bind",
+            "texts": [
+					"I would like to bind my service",
+					"Bind my service",
+					"Bind my service to an application"
+            ]
+        },
+		  {
+            "class": "bluemix.service.create",
+            "emittarget": "bluemix.service.create",
+            "texts": [
+                "Service create",
+					 "Create my service",
+					 "Build service"
+            ],
+				"parameters" : [
+				  {
+						"name": "servicename",
+						"type": "entity",
+						"prompt": "OK. What is the name of the service to create?"
+				  }
+				]
+        },
+		  {
+            "class": "bluemix.service.help",
+            "emittarget": "bluemix.service.help",
+            "texts": [
+					"Help service",
+					"Commands for service",
+					"What are the service commands"
+            ]
+        },
+		  {
+            "class": "bluemix.service.list",
+            "emittarget": "bluemix.service.list",
+            "texts": [
+					"List all Bluemix services",
+					"Show Bluemix services",
+					"Can I have a list of all the Bluemix services"
+            ]
+        },
+		  {
+            "class": "bluemix.space.services.list",
+            "emittarget": "bluemix.space.services.list",
+            "texts": [
+					"Show my services",
+					"Show services in my space",
+					"Display my services"
+            ]
+        },
+		  {
+            "class": "bluemix.service.remove",
+            "emittarget": "bluemix.service.remove",
+            "texts": [
+					"Eliminate my service",
+					"I would like to remove my service",
+					"Get rid of my service"
+            ],
+				"parameters" : [
+				  {
+						"name": "myservicename",
+						"type": "entity",
+						"prompt": "OK. What is the name of the service to remove?"
+				  }
+				]
+        },
+		  {
+            "class": "bluemix.service.unbind",
+            "emittarget": "bluemix.service.unbind",
+            "texts": [
+                "Service unbind",
+					 "Unhinge my service",
+					 "I would like to unbind my service"
+            ]
+        }
+    ],
+	"parameter.values" : [
+		{
+			"name": "servicename",
+			"values": []
+		},
+		{
+			"name": "myservicename",
+			"values": []
+		}
+	]
+}
