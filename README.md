@@ -10,7 +10,7 @@ Script package that exposes various IBM Cloud services functionality through Hub
   * [License](#license)
   * [Contribute](#contribute)
 
-## Usage <a id="usage"></a>
+## Usage
 
 If you are new to Hubot visit the [getting started](https://hubot.github.com/docs/) content to get a basic bot up and running.  Next, follow these steps for adding this external script into your hubot:
 
@@ -29,7 +29,7 @@ HUBOT_BLUEMIX_PASSWORD=<Password for the Bluemix use>
 6. Start up your bot & off to the races!
 
 
-## Commands <a id="commands"></a>
+## Commands
 
 - `hubot service bind` - Bind a service instance to an application.
 - `hubot service create [service]` - Create a service instance.
@@ -39,15 +39,15 @@ HUBOT_BLUEMIX_PASSWORD=<Password for the Bluemix use>
 - `hubot service unbind` - Unbind a service instance from an application.
 - `hubot service(s) help` - Show available service commands.
 
-## Hubot Adapter Setup <a id="hubot-adapter-setup"></a>
+## Hubot Adapter Setup
 
 Hubot supports a variety of adapters to connect to popular chat clients.  For more feature rich experiences you can setup the following adapters:
-- [Slack setup](./docs/adapters/slack.md)
-- [Facebook Messenger setup](./docs/adapters/facebook.md)
+- [Slack setup](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/docs/adapters/slack.md)
+- [Facebook Messenger setup](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/docs/adapters/facebook.md)
 
-## Development <a id="development"></a>
+## Development
 
-Please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) before starting any work.  Steps for running this script for development purposes:
+Please refer to the [CONTRIBUTING.md](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/CONTRIBUTING.md) before starting any work.  Steps for running this script for development purposes:
 
 ### Configuration Setup
 
@@ -75,13 +75,13 @@ Hubot supports a variety of adapters to connect to popular chat clients.
 
 If you just want to use:
  - Terminal: run `npm run start`
- - [Slack: link to setup instructions](./docs/adapters/slack.md)
- - [Facebook Messenger: link to setup instructions](./docs/adapters/facebook.md)
+ - [Slack: link to setup instructions](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/docs/adapters/slack.md)
+ - [Facebook Messenger: link to setup instructions](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/docs/adapters/facebook.md)
 
-## License <a id="license"></a>
+## License
 
-See [LICENSE.txt](./LICENSE.txt) for license information.
+See [LICENSE.txt](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/LICENSE.txt) for license information.
 
-## Contribute <a id="contribute"></a>
+## Contribute
 
-Please check out our [Contribution Guidelines](./CONTRIBUTING.md) for detailed information on how you can lend a hand.
+Please check out our [Contribution Guidelines](https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management/blob/master/CONTRIBUTING.md) for detailed information on how you can lend a hand.
