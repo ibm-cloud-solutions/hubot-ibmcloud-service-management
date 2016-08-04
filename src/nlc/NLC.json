@@ -3,19 +3,22 @@
     "classes": [
         {
             "class": "bluemix.service.bind",
+			"description": "Bind Bluemix service to an application",
             "emittarget": "bluemix.service.bind",
             "texts": [
 					"I would like to bind my service",
-					"Bind my service",
+					"Bind my Bluemix service",
 					"Bind my service to an application"
             ]
         },
 		  {
             "class": "bluemix.service.create",
+			"description": "Create a Bluemix service",
             "emittarget": "bluemix.service.create",
             "texts": [
-                "Service create",
+                     "Service create",
 					 "Create my service",
+					 "Create a Bluemix service",
 					 "Build service"
             ],
 				"parameters" : [
@@ -28,15 +31,18 @@
         },
 		  {
             "class": "bluemix.service.help",
+			"description": "Help with Bluemix services",
             "emittarget": "bluemix.service.help",
             "texts": [
 					"Help service",
 					"Commands for service",
+					"Help with Bluemix services",
 					"What are the service commands"
             ]
         },
 		  {
             "class": "bluemix.service.list",
+			"description": "List all Bluemix services",
             "emittarget": "bluemix.service.list",
             "texts": [
 					"List all Bluemix services",
@@ -46,15 +52,18 @@
         },
 		  {
             "class": "bluemix.space.services.list",
+			"description": "Show Bluemix services in the current space",
             "emittarget": "bluemix.space.services.list",
             "texts": [
 					"Show my services",
+					"Show Bluemix services in the current space",
 					"Show services in my space",
 					"Display my services"
             ]
         },
 		  {
             "class": "bluemix.service.remove",
+			"description": "Remove a Bluemix service",
             "emittarget": "bluemix.service.remove",
             "texts": [
 					"Eliminate my service",
@@ -71,11 +80,12 @@
         },
 		  {
             "class": "bluemix.service.unbind",
+			"description": "Unbind Bluemix service",
             "emittarget": "bluemix.service.unbind",
             "texts": [
                 "Service unbind",
-					 "Unhinge my service",
-					 "I would like to unbind my service"
+			    "Unhinge my service",
+			    "Unbind my Bluemix service form application"
             ]
         }
     ],
