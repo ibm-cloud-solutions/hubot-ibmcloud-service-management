@@ -80,7 +80,7 @@
         },
 		  {
             "class": "bluemix.service.unbind",
-            "description": "Unbind Bluemix service",
+            "description": "Unbind a Bluemix service",
             "emittarget": "bluemix.service.unbind",
             "texts": [
                 	"Service unbind",
