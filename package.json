@@ -10,6 +10,7 @@
   "scripts": {
     "start": "source config/env && hubot -a shell",
     "slack": "source config/env && hubot -a slack",
+    "postinstall": "initDb src/nlc/NLC.json",
     "facebook": "source config/env && hubot -a fb",
     "lint": "eslint src/**/*.js test/*.js index.js",
     "test": ". test/.env && mocha test",
