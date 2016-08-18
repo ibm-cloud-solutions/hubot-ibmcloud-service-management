@@ -100,7 +100,7 @@ module.exports = (robot) => {
 					prompt += '\n' + (i + 1) + ' - ' + plans[i].entity.name;
 				}
 
-				let regex = new RegExp('([1-' + plans.length + ']+)');
+				let regex = utils.generateRegExpForNumberedList(plans.length);
 				utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((response) => {
 					var planIndex = parseInt(response.match[1], 10);
 
@@ -145,7 +145,7 @@ module.exports = (robot) => {
 									for (var i = 0; i < apps.length; i++) {
 										prompt += '\n' + (i + 1) + ' - ' + apps[i].name;
 									}
-									let regex = new RegExp('([1-' + apps.length + ']+)');
+									let regex = utils.generateRegExpForNumberedList(apps.length);
 									utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((response) => {
 										// Selection made.
 										var appIndex = parseInt(response.match[1], 10);
