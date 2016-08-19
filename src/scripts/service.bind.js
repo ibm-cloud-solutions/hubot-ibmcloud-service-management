@@ -92,7 +92,7 @@ module.exports = (robot) => {
 				prompt += '\n' + (i + 1) + ' - ' + serviceInstances[i].name;
 			}
 
-			var regex = new RegExp('([1-' + serviceInstances.length + ']+)');
+			var regex = utils.generateRegExpForNumberedList(serviceInstances.length);
 			utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((selectionRes) => {
 				var selection = parseInt(selectionRes.match[1], 10);
 				var serviceInstanceIndex = parseInt(selection, 10);
@@ -107,7 +107,7 @@ module.exports = (robot) => {
 				}
 
 				// Prompt the user to select which app to unbind.
-				var regex = new RegExp('([1-' + apps.length + ']+)');
+				var regex = utils.generateRegExpForNumberedList(apps.length);
 				utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((selectionRes) => {
 					selection = parseInt(selectionRes.match[1], 10);
 					var app = apps[selection - 1];
