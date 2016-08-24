@@ -68,14 +68,14 @@ module.exports = (robot) => {
 				color: palette.normal
 			};
 			attachment.fields = [
-				{title: service.label, value: service.description, short: true}
+				{title: service.display_name, value: service.description, short: true}
 			];
 			return attachment;
 		});
 
 		// Add the list of service names to the global cache for Natural Lang.
 		var serviceNames = cf.serviceCache.map(function(service){
-			return service.label;
+			return service.display_name;
 		});
 		nlcconfig.updateGlobalParameterValues('IBMcloudServiceManagment_servicename', serviceNames);
 
