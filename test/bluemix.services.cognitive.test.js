@@ -146,4 +146,18 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 		});
 	});
 
+	context('verify entity functions', function() {
+
+		it('should retrieve set of my service names', function(done) {
+			const entities = require('../src/lib/service.entities');
+			var res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
+			entities.getMyServiceNames(room.robot, res, 'myservicename', {}).then(function(myServiceNames) {
+				expect(myServiceNames.length).to.eql(2);
+				done();
+			}).catch(function(error) {
+				done(error);
+			});
+		});
+	});
+
 });

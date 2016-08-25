@@ -60,7 +60,7 @@
     "cf-client": "latest",
     "hubot-cf-convenience": ">=0.0.4",
     "hubot-ibmcloud-activity-emitter": ">=0.0.2",
-    "hubot-ibmcloud-cognitive-lib": ">=0.0.15",
+    "hubot-ibmcloud-cognitive-lib": ">=0.0.37",
     "hubot-ibmcloud-utils": ">=0.0.8",
     "hubot-conversation": "^1.1.1",
     "i18n-2": "^0.6.3",
