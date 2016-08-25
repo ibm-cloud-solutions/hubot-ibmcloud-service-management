@@ -26,6 +26,7 @@ const cf = require('hubot-cf-convenience');
 const activity = require('hubot-ibmcloud-activity-emitter');
 const utils = require('hubot-ibmcloud-utils').utils;
 const Conversation = require('hubot-conversation');
+const entities = require('../lib/service.entities');
 
 // --------------------------------------------------------------
 // i18n (internationalization)
@@ -47,6 +48,9 @@ i18n.setLocale('en');
 const REMOVE_SERVICE = /service\s+(remove|delete|destroy)\s+(.*)/i;
 
 module.exports = (robot) => {
+
+	// Register entity handling functions
+	entities.registerEntityFunctions();
 
 	var switchBoard = new Conversation(robot);
 

@@ -24,6 +24,7 @@
 				"parameters" : [
 				  {
 						"name": "servicename",
+						"title": "service name",
 						"type": "entity",
 						"prompt": "OK. What is the name of the service to create?"
 				  }
@@ -73,8 +74,10 @@
 				"parameters": [
 				  {
 						"name": "myservicename",
+						"title": "service name",
 						"type": "entity",
-						"prompt": "OK. What is the name of the service to remove?"
+						"prompt": "OK. What is the name of the service to remove?",
+						"entityfunction": "funcmyservicename"
 				  }
 				]
         },
