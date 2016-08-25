@@ -3,7 +3,7 @@
   "version": "0.0.15",
   "description": "hubot for IBM Cloud services interactions",
   "main": "index.js",
-  "respository": {
+  "repository": {
     "url": "https://github.com/ibm-cloud-solutions/hubot-ibmcloud-service-management",
     "type": "git"
   },
