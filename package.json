@@ -47,7 +47,15 @@
   },
   "peerDependencies": {
     "hubot": "^2.19.0",
-    "hubot-ibmcloud-formatter": ">=0.0.10"
+    "hubot-ibmcloud-formatter": ">=0.0.32",
+    "hubot-cf-convenience": ">=0.0.13",
+    "hubot-ibmcloud-activity-emitter": ">=0.0.3",
+    "hubot-ibmcloud-cognitive-lib": ">=0.0.40",
+    "hubot-ibmcloud-utils": ">=0.0.14",
+    "hubot-conversation": "^1.1.1",
+    "i18n-2": "^0.6.3",
+    "lodash": "^4.13.1",
+    "request": "^2.74.0"
   },
   "engines": {
     "node": ">= 4.2.0"
@@ -57,14 +65,5 @@
     "index.js"
   ],
   "dependencies": {
-    "cf-client": "latest",
-    "hubot-cf-convenience": ">=0.0.4",
-    "hubot-ibmcloud-activity-emitter": ">=0.0.2",
-    "hubot-ibmcloud-cognitive-lib": ">=0.0.37",
-    "hubot-ibmcloud-utils": ">=0.0.8",
-    "hubot-conversation": "^1.1.1",
-    "i18n-2": "^0.6.3",
-    "lodash": "^4.13.1",
-    "request": "^2.72.0"
   }
 }
