@@ -1,6 +1,6 @@
 {
   "name": "hubot-ibmcloud-service-management",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "hubot for IBM Cloud services interactions",
   "main": "index.js",
   "repository": {
@@ -64,6 +64,5 @@
     "src",
     "index.js"
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }
