@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const palette = require('hubot-ibmcloud-utils').palette;
@@ -32,7 +32,7 @@ const nlcconfig = require('hubot-ibmcloud-cognitive-lib').nlcconfig;
 // It will read from a peer messages.json file.  Later, these
 // messages can be referenced throughout the module.
 // --------------------------------------------------------------
-var i18n = new (require('i18n-2'))({
+const i18n = new (require('i18n-2'))({
 	locales: ['en'],
 	extension: '.json',
 	// Add more languages to the list of locales when the files are created.
@@ -74,7 +74,7 @@ module.exports = (robot) => {
 		});
 
 		// Add the list of service names to the global cache for Natural Lang.
-		var serviceNames = cf.serviceCache.map(function(service){
+		let serviceNames = cf.serviceCache.map(function(service){
 			return service.display_name;
 		});
 		nlcconfig.updateGlobalParameterValues('IBMcloudServiceManagment_servicename', serviceNames);
