@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const activity = require('hubot-ibmcloud-activity-emitter');
@@ -33,7 +33,7 @@ const entities = require('../lib/service.entities');
 // It will read from a peer messages.json file.  Later, these
 // messages can be referenced throughout the module.
 // --------------------------------------------------------------
-var i18n = new (require('i18n-2'))({
+const i18n = new (require('i18n-2'))({
 	locales: ['en'],
 	extension: '.json',
 	// Add more languages to the list of locales when the files are created.
@@ -52,7 +52,7 @@ module.exports = (robot) => {
 	// Register entity handling functions
 	entities.registerEntityFunctions();
 
-	var switchBoard = new Conversation(robot);
+	let switchBoard = new Conversation(robot);
 
 	// Natural Language match
 	robot.on('bluemix.service.remove', (res, parameters) => {
@@ -89,10 +89,10 @@ module.exports = (robot) => {
 					summaryStr = JSON.stringify(result);
 				}
 				robot.logger.info(`${TAG}: cf library returned with summary ${summaryStr}.`);
-				var services = result.services;
-				var serviceInstanceGuid = null;
+				let services = result.services;
+				let serviceInstanceGuid = null;
 				// Iterate the list of services to find a match to the serviceName.
-				for (var i = 0; i < services.length; i++) {
+				for (let i = 0; i < services.length; i++) {
 					if (serviceName === services[i].name) {
 						serviceInstanceGuid = services[i].guid;
 						break;

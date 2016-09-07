@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const utils = require('hubot-ibmcloud-utils').utils;
@@ -32,7 +32,7 @@ const Conversation = require('hubot-conversation');
 // It will read from a peer messages.json file.  Later, these
 // messages can be referenced throughout the module.
 // --------------------------------------------------------------
-var i18n = new (require('i18n-2'))({
+const i18n = new (require('i18n-2'))({
 	locales: ['en'],
 	extension: '.json',
 	// Add more languages to the list of locales when the files are created.
@@ -49,7 +49,7 @@ const BIND_SERVICE = /service\s+bind/i;
 // Slack entry point.
 module.exports = (robot) => {
 
-	var switchBoard = new Conversation(robot);
+	let switchBoard = new Conversation(robot);
 
 	// Natural Language match
 	robot.on('bluemix.service.bind', (res) => {
@@ -78,7 +78,7 @@ module.exports = (robot) => {
 				summaryStr = JSON.stringify(spaceSummary);
 			}
 			robot.logger.info(`${TAG}: cf library returned with summary ${summaryStr}.`);
-			var serviceInstances = spaceSummary.services;
+			let serviceInstances = spaceSummary.services;
 			// Verify there are service instances available.
 			if (serviceInstances.length === 0) {
 				let message = i18n.__('service.instances.not.found');
@@ -87,32 +87,32 @@ module.exports = (robot) => {
 			}
 
 			// Prompt the user to select from among their service instances.
-			var prompt = i18n.__('service.select.prompt');
-			for (var i = 0; i < serviceInstances.length; i++) {
+			let prompt = i18n.__('service.select.prompt');
+			for (let i = 0; i < serviceInstances.length; i++) {
 				prompt += '\n' + (i + 1) + ' - ' + serviceInstances[i].name;
 			}
 
-			var regex = utils.generateRegExpForNumberedList(serviceInstances.length);
+			let regex = utils.generateRegExpForNumberedList(serviceInstances.length);
 			utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((selectionRes) => {
-				var selection = parseInt(selectionRes.match[1], 10);
-				var serviceInstanceIndex = parseInt(selection, 10);
-				var serviceInstanceGuid = serviceInstances[serviceInstanceIndex - 1].guid;
-				var serviceInstanceName = serviceInstances[serviceInstanceIndex - 1].name;
+				let selection = parseInt(selectionRes.match[1], 10);
+				let serviceInstanceIndex = parseInt(selection, 10);
+				let serviceInstanceGuid = serviceInstances[serviceInstanceIndex - 1].guid;
+				let serviceInstanceName = serviceInstances[serviceInstanceIndex - 1].name;
 
 				// Build a list of all the apps that are bound to this service.
 				prompt = i18n.__('service.bind.select.app');
-				var apps = spaceSummary.apps;
-				for (var i = 0; i < apps.length; i++) {
+				let apps = spaceSummary.apps;
+				for (let i = 0; i < apps.length; i++) {
 					prompt += '\n' + (i + 1) + ' - ' + apps[i].name;
 				}
 
 				// Prompt the user to select which app to unbind.
-				var regex = utils.generateRegExpForNumberedList(apps.length);
+				let regex = utils.generateRegExpForNumberedList(apps.length);
 				utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((selectionRes) => {
 					selection = parseInt(selectionRes.match[1], 10);
-					var app = apps[selection - 1];
-					var appName = app.name;
-					var appGuid = app.guid;
+					let app = apps[selection - 1];
+					let appName = app.name;
+					let appGuid = app.guid;
 
 					let message = i18n.__('service.bind.in.progress');
 					robot.emit('ibmcloud.formatter', { response: res, message: message});

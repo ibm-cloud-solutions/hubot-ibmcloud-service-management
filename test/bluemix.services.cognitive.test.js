@@ -13,7 +13,7 @@ const expect = require('chai').expect;
 const mockUtils = require('./mock.utils.cf.js');
 const mockESUtils = require('./mock.utils.es.js');
 
-var i18n = new (require('i18n-2'))({
+const i18n = new (require('i18n-2'))({
 	locales: ['en'],
 	extension: '.json',
 	// Add more languages to the list of locales when the files are created.
@@ -54,12 +54,12 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 	context('Create service - user says `Build service validService1` ', function() {
 		it('should recognize command and prompt for a name', function(done) {
 			// This will get called if the NLC command was recognized.
-			var replyFn = function(msg) {
+			let replyFn = function(msg) {
 				expect(msg).to.eql(i18n.__('service.name.prompt'));
 				done();
 			};
 
-			var res = { message: {text: 'Build service validService1', user: { id: 'mimiron'}}, response: room, reply: replyFn };
+			let res = { message: {text: 'Build service validService1', user: { id: 'mimiron'}}, response: room, reply: replyFn };
 			room.robot.emit('bluemix.service.create', res, { servicename: 'validService1'});
 		});
 	});
@@ -75,7 +75,7 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 				done();
 			});
 
-			var res = { message: {text: 'Bind my service', user: { id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'Bind my service', user: { id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.service.bind', res);
 		});
 	});
@@ -91,7 +91,7 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 				done();
 			});
 
-			var res = { message: {text: 'Unhinge my service', user: { id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'Unhinge my service', user: { id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.service.unbind', res);
 		});
 	});
@@ -109,7 +109,7 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 				done();
 			});
 
-			var res = { message: {text: 'Show Bluemix services', response: room }};
+			let res = { message: {text: 'Show Bluemix services', response: room }};
 			room.robot.emit('bluemix.service.list', res);
 		});
 	});
@@ -125,7 +125,7 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 				done();
 			});
 
-			var res = { message: {text: 'Show services in my space', response: room }};
+			let res = { message: {text: 'Show services in my space', response: room }};
 			room.robot.emit('bluemix.space.services.list', res);
 		});
 	});
@@ -136,12 +136,12 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 	context('Remove service - user says `Eliminate my service validService1` ', function() {
 		it('should recognize command and prompt to be sure', function(done) {
 			// This will get called if the NLC command was recognized.
-			var replyFn = function(msg) {
+			let replyFn = function(msg) {
 				expect(msg).to.eql(i18n.__('service.instance.remove.prompt', 'validService1'));
 				done();
 			};
 
-			var res = { message: {text: 'Eliminate my service validService1', user: { id: 'mimiron'}}, response: room, reply: replyFn };
+			let res = { message: {text: 'Eliminate my service validService1', user: { id: 'mimiron'}}, response: room, reply: replyFn };
 			room.robot.emit('bluemix.service.remove', res, { myservicename: 'validService1'});
 		});
 	});
@@ -150,7 +150,7 @@ describe('Interacting with Bluemix services via Slack / Natural Language', funct
 
 		it('should retrieve set of my service names', function(done) {
 			const entities = require('../src/lib/service.entities');
-			var res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
 			entities.getMyServiceNames(room.robot, res, 'myservicename', {}).then(function(myServiceNames) {
 				expect(myServiceNames.length).to.eql(2);
 				done();

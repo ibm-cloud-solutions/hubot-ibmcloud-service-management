@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const activity = require('hubot-ibmcloud-activity-emitter');
@@ -32,7 +32,7 @@ const Conversation = require('hubot-conversation');
 // It will read from a peer messages.json file.  Later, these
 // messages can be referenced throughout the module.
 // --------------------------------------------------------------
-var i18n = new (require('i18n-2'))({
+const i18n = new (require('i18n-2'))({
 	locales: ['en'],
 	extension: '.json',
 	// Add more languages to the list of locales when the files are created.
@@ -48,7 +48,7 @@ const CREATE_SERVICE = /service\s+create\s+(.*)/i;
 
 module.exports = (robot) => {
 
-	var switchBoard = new Conversation(robot);
+	let switchBoard = new Conversation(robot);
 
 	// Natural Language match
 	robot.on('bluemix.service.create', (res, parameters) => {
@@ -94,24 +94,24 @@ module.exports = (robot) => {
 			robot.logger.info(`${TAG}: Asynch call using cf library to obtain service plans for service ${serviceGuid}.`);
 			cf.Services.getServicePlans(serviceGuid).then((result) => {
 				robot.logger.info(`${TAG}: Obtained service plans for service ${serviceGuid}.`);
-				var prompt = i18n.__('service.plan.prompt');
-				var plans = result.resources;
-				for (var i = 0; i < plans.length; i++) {
+				let prompt = i18n.__('service.plan.prompt');
+				let plans = result.resources;
+				for (let i = 0; i < plans.length; i++) {
 					prompt += '\n' + (i + 1) + ' - ' + plans[i].entity.name;
 				}
 
 				let regex = utils.generateRegExpForNumberedList(plans.length);
 				utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((response) => {
-					var planIndex = parseInt(response.match[1], 10);
+					let planIndex = parseInt(response.match[1], 10);
 
 					// Find the service plan GUID based on the selection.
-					var servicePlanGuid = plans[planIndex - 1].metadata.guid;
+					let servicePlanGuid = plans[planIndex - 1].metadata.guid;
 					let message = i18n.__('service.provision.in.progress');
 					robot.emit('ibmcloud.formatter', { response: res, message: message});
 
 					// We have good input. Build and send request to provision the service.
 					robot.logger.info(`${TAG}: Asynch call using cf library to create service ${name} for service ${serviceGuid} at plan ${servicePlanGuid}.`);
-					var body = {
+					let body = {
 						name: name,
 						service_plan_guid: servicePlanGuid,
 						space_guid: activeSpace.guid
@@ -128,7 +128,7 @@ module.exports = (robot) => {
 								space_name: activeSpace.name,
 								space_guid: activeSpace.guid
 							});
-							var serviceInstanceGuid = result.metadata.guid;
+							let serviceInstanceGuid = result.metadata.guid;
 
 							// Now prompt to see if this service should be bound to an app.
 							let prompt = i18n.__('service.bind.prompt');
@@ -141,16 +141,16 @@ module.exports = (robot) => {
 								cf.Spaces.getSummary(activeSpace.guid).then((result) => {
 									// Iterate the apps and create a suitable response.
 									prompt = i18n.__('app.select.prompt');
-									var apps = result.apps;
-									for (var i = 0; i < apps.length; i++) {
+									let apps = result.apps;
+									for (let i = 0; i < apps.length; i++) {
 										prompt += '\n' + (i + 1) + ' - ' + apps[i].name;
 									}
 									let regex = utils.generateRegExpForNumberedList(apps.length);
 									utils.getExpectedResponse(res, robot, switchBoard, prompt, regex).then((response) => {
 										// Selection made.
-										var appIndex = parseInt(response.match[1], 10);
-										var appName = apps[appIndex - 1].name;
-										var appGuid = apps[appIndex - 1].guid;
+										let appIndex = parseInt(response.match[1], 10);
+										let appName = apps[appIndex - 1].name;
+										let appGuid = apps[appIndex - 1].guid;
 
 										let message = i18n.__('service.bind.in.progress');
 										robot.emit('ibmcloud.formatter', { response: res, message: message});
