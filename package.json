@@ -21,7 +21,9 @@
     "hubot-scripts",
     "bluemix",
     "cloud",
-    "slack"
+    "slack",
+    "ibm",
+    "ibm cloud"
   ],
   "author": "ibm-cloud-solutions",
   "license": "Apache-2.0",
